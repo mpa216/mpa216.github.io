@@ -1,16 +1,324 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>IMG</title>
-  </head>
-  <body>
-    <main>
-      <h1>Halo, Ada elemen bernama img</h1>
-      <p>Fungsi nya adalah meletakkan gambar pada web yang kita buat</p>
-      <p>Bisa juga digunakan untuk menaruh gambar yang bergerak seperti GIF</p>
-      <p>Namun pastikan gambar yg ingin kita tampilkan pada web ada di repo yang sama dengan file .html yang dibuat</p>
-      <img src="unknown.png" alt="foto tahun baru di WT" width="50%" height="50%">
-      <p><em>Aku yang jadi helikopter, hehe</em> ...</p>
-    </main>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Mahardhika Putra Adipratama</title>
+  <meta name="description" content="Electrical engineer (ITB, 2026). Digital IC physical design and verification, analog layout, embedded hardware and firmware.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231b1b1a'/%3E%3Cpath d='M8 23V9l8 9 8-9v14' fill='none' stroke='%23e08a5e' stroke-width='2.6' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="mark" href="#">mahardhika</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Mahardhika Putra Adipratama</h1>
+      <p class="lede">Electrical engineer working from transistor layout to firmware. I take designs through the last, least glamorous mile: the sign-off deck reaching zero, the board revision that finally fits.</p>
+      <p class="sub">B.Eng. Electrical Engineering, Bandung Institute of Technology, Cum Laude 2026. Based in Jakarta, Indonesia.</p>
+      <ul class="links">
+        <li><a href="mailto:mahardhika.adipratama@gmail.com">mahardhika.adipratama@gmail.com</a></li>
+        <li><a href="https://github.com/mpa216" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/mahardhikaadipratama" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <section id="work">
+      <p class="label">Selected work</p>
+
+      <!-- 01 -->
+      <article class="project" id="accelerator">
+        <div class="p-head">
+          <span class="p-num">01</span>
+          <div>
+            <h2>8-bit deep-learning accelerator, RTL to signed-off GDS</h2>
+          </div>
+          <p class="p-meta">2026 · GF180MCU 180 nm · LibreLane / OpenROAD · pyuvm · cocotb</p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/dla-routed.webp" width="1018" height="730" alt="Routed layout of the accelerator macro with eight SRAM macros in a central block"></button>
+          <figcaption>The routed macro, 1600 × 1100 µm. Eight SRAM macros are clustered in a central 4 × 2 block.</figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p>An INT8 accelerator for a small MNIST GAN generator, taken from RTL to a signed-off macro with open-source EDA only. I co-designed the RTL; the physical implementation, sign-off, the 4-wire serial bridge that wraps the core, and the UVM verification environment are my own work.</p>
+          <p>One change I'm proud of: replacing the last result-buffer SRAM with a 384-flip-flop register file. Reads became single-cycle, writeback dropped from 48 to 16 cycles, and power fell 9%.</p>
+          <ul class="facts">
+            <li><b>0 violations</b>DRC, LVS, GDS-XOR and antenna</li>
+            <li><b>9 STA corners</b>closed at 40 ns (25 MHz)</li>
+            <li><b>~84,875 instances</b>single-supply 3.3 V macro</li>
+            <li><b>Bit-exact</b>against a Python golden model, through gate-level re-simulation</li>
+          </ul>
+          <p class="note"><strong>Status.</strong> Paper accepted at APSIPA ASC 2026 (4th of 7 authors, travel grant received). The block is in the Chipathon 2026 shuttle review, with tape-out expected in September or December 2026. It has not been fabricated yet.</p>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/dla-density.webp" width="1018" height="730" loading="lazy" alt="Placement-density heatmap of the macro"></button>
+            <figcaption>Placement-density heatmap</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/dla-engine.webp" width="1600" height="822" loading="lazy" alt="Block diagram of the DLA engine: buffer banks, control unit and PE array"></button>
+            <figcaption>Engine top level</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/dla-pe.webp" width="1100" height="757" loading="lazy" alt="Processing element datapath: 8-bit multiply into a 24-bit accumulator"></button>
+            <figcaption>Processing element: 8 × 8-bit multiply into a 24-bit accumulator</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/dla-digits.webp" width="928" height="448" loading="lazy" alt="Two handwritten-style digits, a one and a zero, generated by the accelerator"></button>
+            <figcaption>Digits generated through the hardware path</figcaption>
+          </figure>
+        </div>
+        <p class="more">Figures from the APSIPA ASC 2026 paper. <a href="https://github.com/mpa216/Deep-Learning-Accelerator-DLA-Engine-From-CNN-to-GenAI-SNN" rel="noopener">Repository and learning notes →</a></p>
+      </article>
+
+      <!-- 02 -->
+      <article class="project" id="dosing">
+        <div class="p-head">
+          <span class="p-num">02</span>
+          <div>
+            <h2>Closed-loop chemical dosing for a water-treatment plant</h2>
+          </div>
+          <p class="p-meta">2026 · Bachelor's thesis · ESP32 · C/C++ · MQTT · KiCad</p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/wtp-board.webp" width="1600" height="1205" alt="Assembled pump actuator circuit board with an ESP32 module, relay channels and screw terminals"></button>
+          <figcaption>Pump actuator board, revision 1.3: an ESP32 and three optocoupler-isolated relay channels.</figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p>The dosing subsystem of ITB Jatinangor's automated water-treatment plant, designed alone. An ESP32 runs a three-channel non-blocking state machine: it takes flow setpoints over MQTT from the plant's MPC controller, estimates the dosed volume from an ultrasonic level sensor, and drives the soda-ash, PAC and hypochlorite pumps.</p>
+          <p>I also designed the hardware. The two-layer board went through three fabricated revisions. The hand-built power conditioner holds about 30,000 µF in reserve, so the controller can save its state when the mains drops and resume by itself afterwards.</p>
+          <ul class="facts">
+            <li><b>3.2–10.2%</b>deviation from the 30-minute target across five demand profiles</li>
+            <li><b>1.7%</b>volume-estimation error, checked with a graduated cylinder</li>
+            <li><b>300+ minutes</b>relay thermal test, plus automatic recovery after power loss</li>
+            <li><b>6 of 7</b>specifications met</li>
+          </ul>
+          <p class="note"><strong>What's left.</strong> The pump-failure alarm tracks cumulative deficit, so it fired in 7.4–106 s against a 10 s target. That is the next thing to fix.</p>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/wtp-kicad.webp" width="1500" height="787" loading="lazy" alt="Two-layer PCB layout in KiCad"></button>
+            <figcaption>The two-layer layout in KiCad</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/wtp-power.webp" width="1400" height="1179" loading="lazy" alt="Hand-soldered power conditioner on perfboard with three large electrolytic capacitors"></button>
+            <figcaption>Power conditioner with last-gasp reserve</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/wtp-enclosure.webp" width="1400" height="1050" loading="lazy" alt="Grey control enclosure with three channels of switches and cable glands"></button>
+            <figcaption>Three-channel control enclosure</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/wtp-tracking.webp" width="1400" height="1801" loading="lazy" alt="Plots of cumulative dosed volume against target for three chemical channels"></button>
+            <figcaption>Volume tracking on all three channels after filtering</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="project" id="adc">
+        <div class="p-head">
+          <span class="p-num">03</span>
+          <div>
+            <h2>5-bit pipelined ADC, full-custom layout in 45 nm CMOS</h2>
+          </div>
+          <p class="p-meta">2025 · Cadence Virtuoso · switched-capacitor MDAC · MIM capacitors</p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/adc-floorplan.webp" width="602" height="519" alt="ADC layout floorplan with four labelled 1.5-bit stages and a digital correction block"></button>
+          <figcaption>Floorplan: four 1.5-bit stages, with the digital correction logic kept apart from the analog blocks.</figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p>I cascaded 1.5-bit switched-capacitor stages with digital error correction into a 5-bit pipelined ADC, then laid it out by hand. The work included a modular floorplan that isolates digital logic from the op-amps and comparators, an H-rail power grid, and MIM capacitors in place of MOS capacitors for better matching.</p>
+          <p>Resizing the comparator capacitors from 100 fF to 500 fF stabilised the first stage. Further down the pipeline, the least significant bits still stick in system simulation.</p>
+          <p class="note"><strong>Honest outcome.</strong> DRC and LVS did not pass. Unconstrained auto-routing left two opens on the VSS mesh, and N-well tap density fell short. I traced both to their root causes and specified the fix: hand-constrained ground routing, with well taps placed before any signal routing.</p>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/adc-layout.webp" width="602" height="518" loading="lazy" alt="Complete routed layout of the pipelined ADC"></button>
+            <figcaption>Complete layout</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/adc-transient.webp" width="1553" height="824" loading="lazy" alt="Transient simulation waveforms of the ADC stage"></button>
+            <figcaption>Schematic transient: residue amplification</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="project" id="counting">
+        <div class="p-head">
+          <span class="p-num">04</span>
+          <div>
+            <h2>Real-time vehicle counting from drone and CCTV video</h2>
+          </div>
+          <p class="p-meta">2025 · Research assistant, LSKK Lab · YOLOv11 · ByteTrack · Python</p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/vc-drone.webp" width="1253" height="704" alt="Top-down drone view of an intersection with detection boxes and in/out counting lines"></button>
+          <figcaption>Counting lines for each direction at an intersection, from a drone.</figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p>This pipeline detects, tracks and counts cars, motorcycles, buses and trucks for each direction of an intersection. The stock COCO model failed from a top-down drone view, especially on motorcycles. A bigger model would have fallen to 3–7 FPS, so I fixed the data instead: I annotated 526 drone frames myself and fine-tuned on them.</p>
+          <ul class="facts">
+            <li><b>~14 FPS</b>YOLO11s, chosen after benchmarking all five model sizes</li>
+            <li><b>526 frames</b>annotated by hand with Roboflow and SAM</li>
+            <li><b>0.65–0.75</b>ByteTrack confidence band that gave stable track IDs</li>
+            <li><b>Recorded footage</b>evaluated against manual counts, not yet deployed live</li>
+          </ul>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/vc-street.webp" width="1280" height="720" loading="lazy" alt="Street-level camera frame with tracked vehicles labelled by ID"></button>
+            <figcaption>Tracked IDs on street-level footage</figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/vc-dataset.webp" width="1116" height="513" loading="lazy" alt="Grid of drone frame thumbnails from the custom dataset"></button>
+            <figcaption>Part of the drone dataset</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="project" id="trading">
+        <div class="p-head">
+          <span class="p-num">05</span>
+          <div>
+            <h2>Image-trading platform over REST and a custom TLS protocol</h2>
+          </div>
+          <p class="p-meta">2026 · Team of three · Python · Flask · TCP/TLS · SQLite</p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/trade-offers.webp" width="1600" height="860" alt="Desktop client showing a pending barter offer with accept and refuse buttons"></button>
+          <figcaption>The client's Offers tab, previewing a barter offer.</figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p>Users upload, browse and barter images. One multithreaded Python server offers the same business logic through two protocols: REST over HTTPS, and a length-prefixed protocol of our own over TCP with TLS. I worked on the server, protocol and security layers, and we built the desktop GUI together.</p>
+          <ul class="facts">
+            <li><b>bcrypt</b>password hashing with login rate limiting</li>
+            <li><b>Fernet + SHA-256</b>encrypted image storage with integrity checks</li>
+            <li><b>TOCTOU-safe</b>ownership transfer when a trade is accepted</li>
+            <li><b>Persistent offers</b>that survive a server restart</li>
+          </ul>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/trade-server.webp" width="1200" height="1236" loading="lazy" alt="Diagram of server modules: REST and TCP threads over a shared services layer"></button>
+            <figcaption>Server structure: two protocol threads over one services layer</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="experience">
+      <p class="label">Experience</p>
+      <ul class="rows">
+        <li>
+          <span class="when">2026.07 – 11</span>
+          <div>
+            <h3>Overseas Technical Talent Program <span class="org">· KCCI</span></h3>
+            <p>A 500-hour programme: Korean language (200 h, completed), plus firmware on STM32 and FreeRTOS, electronic hardware design, and semiconductor design.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2025.07 – 08</span>
+          <div>
+            <h3>Data Protection Exploration Intern <span class="org">· Telkomsel</span></h3>
+            <p>Built a differential-privacy analysis system (Python, Flask, pyDP) against re-identification and fingerprinting, and a personal-data-protection audit matrix.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2024.09 – 2026.05</span>
+          <div>
+            <h3>Laboratory Assistant <span class="org">· ITB</span></h3>
+            <p>Ran practicum sessions for Electronics I, Computer Architecture (a single-cycle RISC-V in Verilog), and Microprocessor Systems (ESP32).</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2024.09 – 2025.11</span>
+          <div>
+            <h3>Teaching &amp; Research Assistant <span class="org">· ITB</span></h3>
+            <p>Taught weekly Discrete Structures tutorials for 60+ students. Built the vehicle-counting system at the Control System &amp; Computer Lab.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2023.01 – 2025.01</span>
+          <div>
+            <h3>Senior Programmer <span class="org">· ITB Robotics Unit</span></h3>
+            <p>Set up Gazebo simulation so robot behaviour could be tested without the physical hardware.</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="label">Education</p>
+      <ul class="rows">
+        <li>
+          <span class="when">2022 – 2026</span>
+          <div>
+            <h3>B.Eng. Electrical Engineering <span class="org">· Bandung Institute of Technology</span></h3>
+            <p>IC design specialisation. Cum Laude, GPA 3.54 / 4.00.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <p class="label">Skills</p>
+      <dl class="skills">
+        <dt>Digital IC</dt>
+        <dd>Verilog, LibreLane / OpenROAD, OpenSTA, Yosys, Verilator, Magic, KLayout, pyuvm, cocotb, Icarus, Quartus</dd>
+        <dt>Analog &amp; layout</dt>
+        <dd>Cadence Virtuoso, Xschem, Ngspice, LTspice</dd>
+        <dt>Embedded</dt>
+        <dd>C / C++, ESP32, STM32, MQTT, KiCad, oscilloscope bench work</dd>
+        <dt>Software</dt>
+        <dd>Python, Tcl, Flask, Git, Linux, Docker</dd>
+        <dt>Languages</dt>
+        <dd>Indonesian (native), English (fluent, IELTS 7.5), Korean (learning)</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <span>Get in touch: <a href="mailto:mahardhika.adipratama@gmail.com">mahardhika.adipratama@gmail.com</a></span>
+    <button class="theme-toggle" type="button">Dark mode</button>
+  </footer>
+
+</div>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <button type="button" aria-label="Close">×</button>
+  <img alt="">
+  <p></p>
+</dialog>
+
+<script src="assets/main.js"></script>
+</body>
 </html>
