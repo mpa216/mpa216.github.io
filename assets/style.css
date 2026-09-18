@@ -5,6 +5,7 @@
   --rule: #e4e3de;
   --surface: #f1f0ec;
   --accent: #a4502a;
+  --on-accent: #ffffff;
   --maxw: 760px;
   --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
@@ -13,12 +14,12 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #121211; --text: #e9e8e4; --muted: #9b9a95; --rule: #2a2a28;
-    --surface: #1b1b1a; --accent: #e08a5e; color-scheme: dark;
+    --surface: #1b1b1a; --accent: #e08a5e; --on-accent: #121211; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #121211; --text: #e9e8e4; --muted: #9b9a95; --rule: #2a2a28;
-  --surface: #1b1b1a; --accent: #e08a5e; color-scheme: dark;
+  --surface: #1b1b1a; --accent: #e08a5e; --on-accent: #121211; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -54,8 +55,15 @@ img { display: block; max-width: 100%; height: auto; }
 /* sections */
 section { border-top: 1px solid var(--rule); padding: 56px 0 8px; }
 .label { font: 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 40px; }
-.work-intro { font-size: 15px; color: var(--muted); max-width: 36em; margin: -16px 0 56px; }
-.work-intro a { color: var(--text); }
+/* the two ways into the reports folder: a pill in the header links, a panel atop Selected work */
+.links { align-items: center; }
+.links .drive a { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); text-decoration: none; font-weight: 500; transition: background .15s, color .15s; }
+.links .drive a:hover { background: var(--accent); color: var(--on-accent); }
+.docs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 18px 20px; margin: -8px 0 64px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; }
+.docs p { margin: 0; font-size: 15px; color: var(--muted); max-width: 30em; }
+.docs strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
+.docs a { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 4px; background: var(--accent); color: var(--on-accent); font-size: 15px; font-weight: 500; text-decoration: none; transition: filter .15s; }
+.docs a:hover { color: var(--on-accent); filter: brightness(1.1); }
 
 /* projects */
 .project { margin: 0 0 88px; scroll-margin-top: 24px; }
