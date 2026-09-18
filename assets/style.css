@@ -5,7 +5,10 @@
   --rule: #e4e3de;
   --surface: #f1f0ec;
   --accent: #a4502a;
-  --on-accent: #ffffff;
+  --hl: #ffd23f;
+  --hl-ink: #1b1b1a;
+  --hl-edge: #1b1b1a;
+  --hl-shadow: #1b1b1a;
   --maxw: 760px;
   --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
@@ -14,12 +17,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #121211; --text: #e9e8e4; --muted: #9b9a95; --rule: #2a2a28;
-    --surface: #1b1b1a; --accent: #e08a5e; --on-accent: #121211; color-scheme: dark;
+    --surface: #1b1b1a; --accent: #e08a5e; color-scheme: dark;
+    --hl: #ffd23f; --hl-ink: #161614; --hl-edge: #ffd23f; --hl-shadow: rgba(255, 210, 63, .22);
   }
 }
 :root[data-theme="dark"] {
   --bg: #121211; --text: #e9e8e4; --muted: #9b9a95; --rule: #2a2a28;
-  --surface: #1b1b1a; --accent: #e08a5e; --on-accent: #121211; color-scheme: dark;
+  --surface: #1b1b1a; --accent: #e08a5e; color-scheme: dark;
+    --hl: #ffd23f; --hl-ink: #161614; --hl-edge: #ffd23f; --hl-shadow: rgba(255, 210, 63, .22);
 }
 
 * { box-sizing: border-box; }
@@ -55,15 +60,23 @@ img { display: block; max-width: 100%; height: auto; }
 /* sections */
 section { border-top: 1px solid var(--rule); padding: 56px 0 8px; }
 .label { font: 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 40px; }
-/* the two ways into the reports folder: a pill in the header links, a panel atop Selected work */
-.links { align-items: center; }
-.links .drive a { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); text-decoration: none; font-weight: 500; transition: background .15s, color .15s; }
-.links .drive a:hover { background: var(--accent); color: var(--on-accent); }
-.docs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 18px 20px; margin: -8px 0 64px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; }
-.docs p { margin: 0; font-size: 15px; color: var(--muted); max-width: 30em; }
-.docs strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
-.docs a { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 4px; background: var(--accent); color: var(--on-accent); font-size: 15px; font-weight: 500; text-decoration: none; transition: filter .15s; }
-.docs a:hover { color: var(--on-accent); filter: brightness(1.1); }
+/* the reports folder: one yellow box in the hero, with an arrow nudging toward the button */
+.drive-box { display: flex; align-items: center; gap: 20px; margin-top: 40px; padding: 24px 26px; background: var(--hl); color: var(--hl-ink); border: 2px solid var(--hl-edge); border-radius: 6px; box-shadow: 6px 6px 0 var(--hl-shadow); }
+.drive-text { flex: 1 1 auto; min-width: 0; }
+.drive-text p { margin: 0; font-size: 15px; line-height: 1.5; }
+.drive-text .drive-title { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 20px; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; }
+.drive-title svg { flex: none; width: 24px; height: 24px; }
+.drive-arrow { flex: none; width: 64px; height: 32px; animation: nudge 1.4s ease-in-out infinite; }
+.drive-box a { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; border-radius: 6px; background: var(--hl-ink); color: var(--hl); font-size: 17px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: transform .15s; }
+.drive-box a:hover { color: var(--hl); transform: translateY(-1px); }
+.drive-box a:focus-visible { outline-color: var(--hl-ink); }
+@keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(7px); } }
+@keyframes nudge-down { 0%, 100% { transform: rotate(90deg) translateX(0); } 50% { transform: rotate(90deg) translateX(7px); } }
+@media (max-width: 719px) {
+  .drive-box { flex-direction: column; align-items: stretch; gap: 12px; padding: 20px; }
+  .drive-arrow { align-self: center; width: 48px; height: 24px; transform: rotate(90deg); animation-name: nudge-down; }
+}
+@media (prefers-reduced-motion: reduce) { .drive-arrow { animation: none; } }
 
 /* projects */
 .project { margin: 0 0 88px; scroll-margin-top: 24px; }
