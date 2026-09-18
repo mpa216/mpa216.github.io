@@ -7,7 +7,18 @@
   <title>Mahardhika Putra Adipratama</title>
   <meta name="description" content="Electrical engineer (ITB, 2026). Digital IC physical design and verification, analog layout, embedded hardware and firmware.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231b1b1a'/%3E%3Cpath d='M8 23V9l8 9 8-9v14' fill='none' stroke='%23e08a5e' stroke-width='2.6' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>
+    // Set theme and language before first paint so neither flickers. main.js repeats the language pick.
+    (function () {
+      var d = document.documentElement, s = {};
+      try { s.theme = localStorage.getItem('theme'); s.lang = localStorage.getItem('lang'); } catch (e) {}
+      if (s.theme === 'light' || s.theme === 'dark') d.dataset.theme = s.theme;
+      var q = null;
+      try { q = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+      var lang = q || s.lang || ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
+      if (lang === 'ko') { d.dataset.lang = 'ko'; d.lang = 'ko'; }
+    })();
+  </script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,19 +26,25 @@
 
   <header class="top">
     <a class="mark" href="#">mahardhika</a>
-    <nav aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="top-right">
+      <nav aria-label="Sections">
+        <a href="#work"><span lang="en">Work</span><span lang="ko">프로젝트</span></a>
+        <a href="#experience"><span lang="en">Experience</span><span lang="ko">경력</span></a>
+        <a href="#skills"><span lang="en">Skills</span><span lang="ko">기술</span></a>
+        <a href="#contact"><span lang="en">Contact</span><span lang="ko">연락처</span></a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language / 언어">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="ko" aria-pressed="false">한국어</button>
+      </div>
+    </div>
   </header>
 
   <main>
     <div class="hero">
       <h1>Mahardhika Putra Adipratama</h1>
-      <p class="lede">Electrical engineer working from transistor layout to firmware. I take designs through the last, least glamorous mile: the sign-off deck reaching zero, the board revision that finally fits.</p>
-      <p class="sub">B.Eng. Electrical Engineering, Bandung Institute of Technology, Cum Laude 2026. Based in Jakarta, Indonesia.</p>
+      <p class="lede"><span lang="en">Electrical engineer working from transistor layout to firmware. I take designs through the last, least glamorous mile: the sign-off deck reaching zero, the board revision that finally fits.</span><span lang="ko">트랜지스터 레이아웃부터 펌웨어까지 다루는 전기·전자 엔지니어입니다. 화려하지 않은 마지막 단계까지 설계를 책임지고 마무리합니다. 사인오프 위반이 0건이 될 때까지, 보드 리비전이 마침내 딱 맞을 때까지.</span></p>
+      <p class="sub"><span lang="en">B.Eng. Electrical Engineering, Bandung Institute of Technology, Cum Laude 2026. Based in Jakarta, Indonesia.</span><span lang="ko">반둥공과대학교(ITB) 전기공학 학사, 2026년 Cum Laude 졸업. 인도네시아 자카르타 거주.</span></p>
       <ul class="links">
         <li><a href="mailto:mahardhika.adipratama@gmail.com">mahardhika.adipratama@gmail.com</a></li>
         <li><a href="https://github.com/mpa216" rel="noopener">GitHub</a></li>
@@ -36,63 +53,63 @@
 
       <div class="drive-box">
         <div class="drive-text">
-          <p class="drive-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg>Full reports, analyses &amp; documents</p>
-          <p>The complete write-up behind every project on this page, in one Google Drive folder.</p>
+          <p class="drive-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></svg><span lang="en">Full reports, analyses &amp; documents</span><span lang="ko">프로젝트 보고서·분석 자료 전체</span></p>
+          <p><span lang="en">The complete write-up behind every project on this page, in one Google Drive folder.</span><span lang="ko">이 페이지에 소개한 모든 프로젝트의 상세 보고서를 Google Drive 폴더 하나에 모았습니다.</span></p>
         </div>
         <svg class="drive-arrow" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19c9-11 19 7 30-1s15-5 26-3"/><path d="M49 6l10 9-11 7"/></svg>
-        <a href="https://drive.google.com/drive/folders/1Edhhxvwx8GdzilicR1Gs_JjDBy0ikbVN?usp=sharing" rel="noopener">Open the folder <span aria-hidden="true">↗</span></a>
+        <a href="https://drive.google.com/drive/folders/1Edhhxvwx8GdzilicR1Gs_JjDBy0ikbVN?usp=sharing" rel="noopener"><span lang="en">Open the folder</span><span lang="ko">폴더 열기</span> <span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
     <section id="work">
-      <p class="label">Selected work</p>
+      <p class="label"><span lang="en">Selected work</span><span lang="ko">주요 프로젝트</span></p>
 
       <!-- 01 -->
       <article class="project" id="accelerator">
         <div class="p-head">
           <span class="p-num">01</span>
           <div>
-            <h2>8-bit deep-learning accelerator, RTL to signed-off GDS</h2>
+            <h2><span lang="en">8-bit deep-learning accelerator, RTL to signed-off GDS</span><span lang="ko">8비트 딥러닝 가속기: RTL부터 사인오프 GDS까지</span></h2>
           </div>
           <p class="p-meta">2026 · GF180MCU 180 nm · LibreLane / OpenROAD · pyuvm · cocotb</p>
         </div>
 
         <figure class="lead-shot">
           <button class="shot" type="button"><img src="assets/img/dla-routed.webp" width="1018" height="730" alt="Routed layout of the accelerator macro with eight SRAM macros in a central block"></button>
-          <figcaption>The routed macro, 1600 × 1100 µm. Eight SRAM macros are clustered in a central 4 × 2 block.</figcaption>
+          <figcaption><span lang="en">The routed macro, 1600 × 1100 µm. Eight SRAM macros are clustered in a central 4 × 2 block.</span><span lang="ko">라우팅을 마친 매크로(1600 × 1100 µm). SRAM 매크로 8개를 중앙에 4 × 2 블록으로 모아 배치.</span></figcaption>
         </figure>
 
         <div class="p-body">
-          <p>An INT8 accelerator for a small MNIST GAN generator, taken from RTL to a signed-off macro with open-source EDA only. I co-designed the RTL; the physical implementation, sign-off, the 4-wire serial bridge that wraps the core, and the UVM verification environment are my own work.</p>
-          <p>One change I'm proud of: replacing the last result-buffer SRAM with a 384-flip-flop register file. Reads became single-cycle, writeback dropped from 48 to 16 cycles, and power fell 9%.</p>
+          <p><span lang="en">An INT8 accelerator for a small MNIST GAN generator, taken from RTL to a signed-off macro with open-source EDA only. I co-designed the RTL; the physical implementation, sign-off, the 4-wire serial bridge that wraps the core, and the UVM verification environment are my own work.</span><span lang="ko">소형 MNIST GAN 생성기용 INT8 가속기를 오픈소스 EDA만으로 RTL부터 사인오프된 매크로까지 완성한 프로젝트입니다. RTL은 공동 설계했고, 물리 구현·사인오프, 코어를 감싸는 4선 시리얼 브리지, UVM 검증 환경은 제가 단독으로 맡았습니다.</span></p>
+          <p><span lang="en">One change I'm proud of: replacing the last result-buffer SRAM with a 384-flip-flop register file. Reads became single-cycle, writeback dropped from 48 to 16 cycles, and power fell 9%.</span><span lang="ko">특히 뿌듯했던 개선은 마지막 결과 버퍼 SRAM을 플립플롭 384개로 된 레지스터 파일로 바꾼 것입니다. 읽기는 1사이클이 되었고, 라이트백은 48사이클에서 16사이클로, 전력은 9% 줄었습니다.</span></p>
           <ul class="facts">
-            <li><b>0 violations</b>DRC, LVS, GDS-XOR and antenna</li>
-            <li><b>9 STA corners</b>closed at 40 ns (25 MHz)</li>
-            <li><b>~84,875 instances</b>single-supply 3.3 V macro</li>
-            <li><b>Bit-exact</b>against a Python golden model, through gate-level re-simulation</li>
+            <li><span lang="en"><b>0 violations</b>DRC, LVS, GDS-XOR and antenna</span><span lang="ko"><b>위반 0건</b>DRC·LVS·GDS-XOR·안테나</span></li>
+            <li><span lang="en"><b>9 STA corners</b>closed at 40 ns (25 MHz)</span><span lang="ko"><b>STA 9개 코너</b>40 ns(25 MHz)에서 타이밍 클로저 달성</span></li>
+            <li><span lang="en"><b>~84,875 instances</b>single-supply 3.3 V macro</span><span lang="ko"><b>약 84,875개 인스턴스</b>3.3 V 단일 전원 매크로</span></li>
+            <li><span lang="en"><b>Bit-exact</b>against a Python golden model, through gate-level re-simulation</span><span lang="ko"><b>비트 단위 일치</b>게이트레벨 재시뮬레이션까지 Python 골든모델과 대조</span></li>
           </ul>
-          <p class="note"><strong>Status.</strong> Paper accepted at APSIPA ASC 2026 (4th of 7 authors, travel grant received). The block is in the Chipathon 2026 shuttle review, with tape-out expected in September or December 2026. It has not been fabricated yet.</p>
+          <p class="note"><span lang="en"><strong>Status.</strong> Paper accepted at APSIPA ASC 2026 (4th of 7 authors, travel grant received). The block is in the Chipathon 2026 shuttle review, with tape-out expected in September or December 2026. It has not been fabricated yet.</span><span lang="ko"><strong>현황.</strong> APSIPA ASC 2026에 논문이 채택되었습니다(7인 중 제4저자, 여비 지원 수령). 블록은 Chipathon 2026 셔틀 심사 중이며, 테이프아웃은 2026년 9월 또는 12월 예정입니다. 아직 제작되지 않았습니다.</span></p>
         </div>
 
         <div class="gallery">
           <figure>
             <button class="shot" type="button"><img src="assets/img/dla-density.webp" width="1018" height="730" loading="lazy" alt="Placement-density heatmap of the macro"></button>
-            <figcaption>Placement-density heatmap</figcaption>
+            <figcaption><span lang="en">Placement-density heatmap</span><span lang="ko">배치 밀도 히트맵</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/dla-engine.webp" width="1600" height="822" loading="lazy" alt="Block diagram of the DLA engine: buffer banks, control unit and PE array"></button>
-            <figcaption>Engine top level</figcaption>
+            <figcaption><span lang="en">Engine top level</span><span lang="ko">엔진 최상위 구조</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/dla-pe.webp" width="1100" height="757" loading="lazy" alt="Processing element datapath: 8-bit multiply into a 24-bit accumulator"></button>
-            <figcaption>Processing element: 8 × 8-bit multiply into a 24-bit accumulator</figcaption>
+            <figcaption><span lang="en">Processing element: 8 × 8-bit multiply into a 24-bit accumulator</span><span lang="ko">PE 데이터패스: 8 × 8비트 곱셈, 24비트 누산</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/dla-digits.webp" width="928" height="448" loading="lazy" alt="Two handwritten-style digits, a one and a zero, generated by the accelerator"></button>
-            <figcaption>Digits generated through the hardware path</figcaption>
+            <figcaption><span lang="en">Digits generated through the hardware path</span><span lang="ko">하드웨어 경로로 생성한 숫자 이미지</span></figcaption>
           </figure>
         </div>
-        <p class="more">Figures from the APSIPA ASC 2026 paper. <a href="https://github.com/mpa216/Deep-Learning-Accelerator-DLA-Engine-From-CNN-to-GenAI-SNN" rel="noopener">Repository and learning notes →</a></p>
+        <p class="more"><span lang="en">Figures from the APSIPA ASC 2026 paper.</span><span lang="ko">그림 출처: APSIPA ASC 2026 논문.</span> <a href="https://github.com/mpa216/Deep-Learning-Accelerator-DLA-Engine-From-CNN-to-GenAI-SNN" rel="noopener"><span lang="en">Repository and learning notes →</span><span lang="ko">저장소 및 학습 노트 →</span></a></p>
       </article>
 
       <!-- 02 -->
@@ -100,44 +117,44 @@
         <div class="p-head">
           <span class="p-num">02</span>
           <div>
-            <h2>Closed-loop chemical dosing for a water-treatment plant</h2>
+            <h2><span lang="en">Closed-loop chemical dosing for a water-treatment plant</span><span lang="ko">정수장 약품 주입 폐루프 제어 시스템</span></h2>
           </div>
-          <p class="p-meta">2026 · Bachelor's thesis · ESP32 · C/C++ · MQTT · KiCad</p>
+          <p class="p-meta">2026 · <span lang="en">Bachelor's thesis</span><span lang="ko">학사 졸업논문</span> · ESP32 · C/C++ · MQTT · KiCad</p>
         </div>
 
         <figure class="lead-shot">
           <button class="shot" type="button"><img src="assets/img/wtp-board.webp" width="1600" height="1205" alt="Assembled pump actuator circuit board with an ESP32 module, relay channels and screw terminals"></button>
-          <figcaption>Pump actuator board, revision 1.3: an ESP32 and three optocoupler-isolated relay channels.</figcaption>
+          <figcaption><span lang="en">Pump actuator board, revision 1.3: an ESP32 and three optocoupler-isolated relay channels.</span><span lang="ko">펌프 액추에이터 보드 V1.3: ESP32와 옵토커플러로 절연한 릴레이 3채널.</span></figcaption>
         </figure>
 
         <div class="p-body">
-          <p>The dosing subsystem of ITB Jatinangor's automated water-treatment plant, designed alone. An ESP32 runs a three-channel non-blocking state machine: it takes flow setpoints over MQTT from the plant's MPC controller, estimates the dosed volume from an ultrasonic level sensor, and drives the soda-ash, PAC and hypochlorite pumps.</p>
-          <p>I also designed the hardware. The two-layer board went through three fabricated revisions. The hand-built power conditioner holds about 30,000 µF in reserve, so the controller can save its state when the mains drops and resume by itself afterwards.</p>
+          <p><span lang="en">The dosing subsystem of ITB Jatinangor's automated water-treatment plant, designed alone. An ESP32 runs a three-channel non-blocking state machine: it takes flow setpoints over MQTT from the plant's MPC controller, estimates the dosed volume from an ultrasonic level sensor, and drives the soda-ash, PAC and hypochlorite pumps.</span><span lang="ko">ITB 자티낭오르 캠퍼스 자동 정수장의 약품 주입 서브시스템을 단독으로 설계했습니다. ESP32가 3채널 논블로킹 상태머신을 실행하며, 정수장의 MPC 컨트롤러로부터 MQTT로 유량 setpoint를 받고, 초음파 레벨센서로 주입량을 추정해 소다회·PAC·차아염소산염 펌프를 구동합니다.</span></p>
+          <p><span lang="en">I also designed the hardware. The two-layer board went through three fabricated revisions. The hand-built power conditioner holds about 30,000 µF in reserve, so the controller can save its state when the mains drops and resume by itself afterwards.</span><span lang="ko">하드웨어도 직접 설계했습니다. 2층 보드는 세 차례 리비전 제작을 거쳤고, 직접 납땜한 전원 보드는 약 30,000 µF 커패시터에 에너지를 비축해 정전 시 컨트롤러가 상태를 저장하고 복전 후 스스로 재개하도록 합니다.</span></p>
           <ul class="facts">
-            <li><b>3.2–10.2%</b>deviation from the 30-minute target across five demand profiles</li>
-            <li><b>1.7%</b>volume-estimation error, checked with a graduated cylinder</li>
-            <li><b>300+ minutes</b>relay thermal test, plus automatic recovery after power loss</li>
-            <li><b>6 of 7</b>specifications met</li>
+            <li><span lang="en"><b>3.2–10.2%</b>deviation from the 30-minute target across five demand profiles</span><span lang="ko"><b>3.2~10.2%</b>5가지 수요 프로파일에서 30분 목표 대비 편차</span></li>
+            <li><span lang="en"><b>1.7%</b>volume-estimation error, checked with a graduated cylinder</span><span lang="ko"><b>1.7%</b>메스실린더로 검증한 부피 추정 오차</span></li>
+            <li><span lang="en"><b>300+ minutes</b>relay thermal test, plus automatic recovery after power loss</span><span lang="ko"><b>300분 이상</b>릴레이 열시험 통과, 정전 후 자동 복구</span></li>
+            <li><span lang="en"><b>6 of 7</b>specifications met</span><span lang="ko"><b>7개 중 6개</b>규격 충족</span></li>
           </ul>
-          <p class="note"><strong>What's left.</strong> The pump-failure alarm tracks cumulative deficit, so it fired in 7.4–106 s against a 10 s target. That is the next thing to fix.</p>
+          <p class="note"><span lang="en"><strong>What's left.</strong> The pump-failure alarm tracks cumulative deficit, so it fired in 7.4–106 s against a 10 s target. That is the next thing to fix.</span><span lang="ko"><strong>남은 과제.</strong> 펌프 고장 알람은 누적 부족량을 기준으로 판단하기 때문에, 울리기까지 10초 목표 대비 7.4~106초가 걸렸습니다. 다음으로 개선할 부분입니다.</span></p>
         </div>
 
         <div class="gallery">
           <figure>
             <button class="shot" type="button"><img src="assets/img/wtp-kicad.webp" width="1500" height="787" loading="lazy" alt="Two-layer PCB layout in KiCad"></button>
-            <figcaption>The two-layer layout in KiCad</figcaption>
+            <figcaption><span lang="en">The two-layer layout in KiCad</span><span lang="ko">KiCad로 설계한 2층 레이아웃</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/wtp-power.webp" width="1400" height="1179" loading="lazy" alt="Hand-soldered power conditioner on perfboard with three large electrolytic capacitors"></button>
-            <figcaption>Power conditioner with last-gasp reserve</figcaption>
+            <figcaption><span lang="en">Power conditioner with last-gasp reserve</span><span lang="ko">last-gasp용 비축 전원 보드</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/wtp-enclosure.webp" width="1400" height="1050" loading="lazy" alt="Grey control enclosure with three channels of switches and cable glands"></button>
-            <figcaption>Three-channel control enclosure</figcaption>
+            <figcaption><span lang="en">Three-channel control enclosure</span><span lang="ko">3채널 제어 함체</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/wtp-tracking.webp" width="1400" height="1801" loading="lazy" alt="Plots of cumulative dosed volume against target for three chemical channels"></button>
-            <figcaption>Volume tracking on all three channels after filtering</figcaption>
+            <figcaption><span lang="en">Volume tracking on all three channels after filtering</span><span lang="ko">필터링 적용 후 3채널 부피 추종 결과</span></figcaption>
           </figure>
         </div>
       </article>
@@ -147,30 +164,30 @@
         <div class="p-head">
           <span class="p-num">03</span>
           <div>
-            <h2>5-bit pipelined ADC, full-custom layout in 45 nm CMOS</h2>
+            <h2><span lang="en">5-bit pipelined ADC, full-custom layout in 45 nm CMOS</span><span lang="ko">45 nm CMOS 5비트 파이프라인 ADC 풀커스텀 레이아웃</span></h2>
           </div>
-          <p class="p-meta">2025 · Cadence Virtuoso · switched-capacitor MDAC · MIM capacitors</p>
+          <p class="p-meta">2025 · Cadence Virtuoso · <span lang="en">switched-capacitor MDAC · MIM capacitors</span><span lang="ko">스위치드 커패시터 MDAC · MIM 커패시터</span></p>
         </div>
 
         <figure class="lead-shot">
           <button class="shot" type="button"><img src="assets/img/adc-floorplan.webp" width="602" height="519" alt="ADC layout floorplan with four labelled 1.5-bit stages and a digital correction block"></button>
-          <figcaption>Floorplan: four 1.5-bit stages, with the digital correction logic kept apart from the analog blocks.</figcaption>
+          <figcaption><span lang="en">Floorplan: four 1.5-bit stages, with the digital correction logic kept apart from the analog blocks.</span><span lang="ko">플로어플랜: 1.5비트 스테이지 4개, 아날로그 블록과 분리 배치한 디지털 오류정정 로직.</span></figcaption>
         </figure>
 
         <div class="p-body">
-          <p>I cascaded 1.5-bit switched-capacitor stages with digital error correction into a 5-bit pipelined ADC, then laid it out by hand. The work included a modular floorplan that isolates digital logic from the op-amps and comparators, an H-rail power grid, and MIM capacitors in place of MOS capacitors for better matching.</p>
-          <p>Resizing the comparator capacitors from 100 fF to 500 fF stabilised the first stage. Further down the pipeline, the least significant bits still stick in system simulation.</p>
-          <p class="note"><strong>Honest outcome.</strong> DRC and LVS did not pass. Unconstrained auto-routing left two opens on the VSS mesh, and N-well tap density fell short. I traced both to their root causes and specified the fix: hand-constrained ground routing, with well taps placed before any signal routing.</p>
+          <p><span lang="en">I cascaded 1.5-bit switched-capacitor stages with digital error correction into a 5-bit pipelined ADC, then laid it out by hand. The work included a modular floorplan that isolates digital logic from the op-amps and comparators, an H-rail power grid, and MIM capacitors in place of MOS capacitors for better matching.</span><span lang="ko">스위치드 커패시터 1.5비트 스테이지를 캐스케이드하고 디지털 오류정정을 더해 5비트 파이프라인 ADC를 구성한 뒤, 레이아웃을 직접 그렸습니다. 여기에는 디지털 로직을 OP-amp·비교기와 분리한 모듈형 플로어플랜, H-레일 전원 그리드, 정합 개선을 위한 MOS→MIM 커패시터 교체가 포함됩니다.</span></p>
+          <p><span lang="en">Resizing the comparator capacitors from 100 fF to 500 fF stabilised the first stage. Further down the pipeline, the least significant bits still stick in system simulation.</span><span lang="ko">비교기 커패시터를 100 fF에서 500 fF로 키워 첫 스테이지를 안정화했습니다. 다만 후단에서는 시스템 시뮬레이션상 LSB 고착이 여전히 남아 있습니다.</span></p>
+          <p class="note"><span lang="en"><strong>Honest outcome.</strong> DRC and LVS did not pass. Unconstrained auto-routing left two opens on the VSS mesh, and N-well tap density fell short. I traced both to their root causes and specified the fix: hand-constrained ground routing, with well taps placed before any signal routing.</span><span lang="ko"><strong>솔직한 평가.</strong> DRC/LVS는 통과하지 못했습니다. 제약 없는 자동 라우팅으로 VSS 메시에 오픈 2건이 생겼고, N-well 탭 밀도도 부족했습니다. 두 문제의 근본 원인을 규명한 뒤, 그라운드 배선에 수동 제약을 걸고 신호 라우팅 전에 웰 탭을 먼저 배치하는 수정안을 정리했습니다.</span></p>
         </div>
 
         <div class="gallery">
           <figure>
             <button class="shot" type="button"><img src="assets/img/adc-layout.webp" width="602" height="518" loading="lazy" alt="Complete routed layout of the pipelined ADC"></button>
-            <figcaption>Complete layout</figcaption>
+            <figcaption><span lang="en">Complete layout</span><span lang="ko">전체 레이아웃</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/adc-transient.webp" width="1553" height="824" loading="lazy" alt="Transient simulation waveforms of the ADC stage"></button>
-            <figcaption>Schematic transient: residue amplification</figcaption>
+            <figcaption><span lang="en">Schematic transient: residue amplification</span><span lang="ko">회로도 과도 해석: 잔차 증폭</span></figcaption>
           </figure>
         </div>
       </article>
@@ -180,34 +197,34 @@
         <div class="p-head">
           <span class="p-num">04</span>
           <div>
-            <h2>Real-time vehicle counting from drone and CCTV video</h2>
+            <h2><span lang="en">Real-time vehicle counting from drone and CCTV video</span><span lang="ko">드론·CCTV 영상 기반 실시간 차량 계수</span></h2>
           </div>
-          <p class="p-meta">2025 · Research assistant, LSKK Lab · YOLOv11 · ByteTrack · Python</p>
+          <p class="p-meta">2025 · <span lang="en">Research assistant, LSKK Lab</span><span lang="ko">LSKK 연구실 연구 조교</span> · YOLOv11 · ByteTrack · Python</p>
         </div>
 
         <figure class="lead-shot">
           <button class="shot" type="button"><img src="assets/img/vc-drone.webp" width="1253" height="704" alt="Top-down drone view of an intersection with detection boxes and in/out counting lines"></button>
-          <figcaption>Counting lines for each direction at an intersection, from a drone.</figcaption>
+          <figcaption><span lang="en">Counting lines for each direction at an intersection, from a drone.</span><span lang="ko">드론으로 촬영한 교차로의 방향별 계수선.</span></figcaption>
         </figure>
 
         <div class="p-body">
-          <p>This pipeline detects, tracks and counts cars, motorcycles, buses and trucks for each direction of an intersection. The stock COCO model failed from a top-down drone view, especially on motorcycles. A bigger model would have fallen to 3–7 FPS, so I fixed the data instead: I annotated 526 drone frames myself and fine-tuned on them.</p>
+          <p><span lang="en">This pipeline detects, tracks and counts cars, motorcycles, buses and trucks for each direction of an intersection. The stock COCO model failed from a top-down drone view, especially on motorcycles. A bigger model would have fallen to 3–7 FPS, so I fixed the data instead: I annotated 526 drone frames myself and fine-tuned on them.</span><span lang="ko">교차로 방향별로 승용차·오토바이·버스·트럭을 검출·추적·계수하는 파이프라인입니다. 기본 COCO 모델은 드론의 탑다운 시점에서 검출에 실패했고, 특히 오토바이가 심했습니다. 더 큰 모델은 3~7 FPS로 느려지기 때문에 모델 대신 데이터를 고쳤습니다. 드론 영상 526프레임을 직접 라벨링해 파인튜닝했습니다.</span></p>
           <ul class="facts">
-            <li><b>~14 FPS</b>YOLO11s, chosen after benchmarking all five model sizes</li>
-            <li><b>526 frames</b>annotated by hand with Roboflow and SAM</li>
-            <li><b>0.65–0.75</b>ByteTrack confidence band that gave stable track IDs</li>
-            <li><b>Recorded footage</b>evaluated against manual counts, not yet deployed live</li>
+            <li><span lang="en"><b>~14 FPS</b>YOLO11s, chosen after benchmarking all five model sizes</span><span lang="ko"><b>약 14 FPS</b>5가지 모델 크기를 벤치마크한 뒤 YOLO11s 선정</span></li>
+            <li><span lang="en"><b>526 frames</b>annotated by hand with Roboflow and SAM</span><span lang="ko"><b>526프레임</b>Roboflow·SAM으로 직접 라벨링</span></li>
+            <li><span lang="en"><b>0.65–0.75</b>ByteTrack confidence band that gave stable track IDs</span><span lang="ko"><b>0.65~0.75</b>추적 ID가 안정적으로 유지되는 ByteTrack confidence 구간</span></li>
+            <li><span lang="en"><b>Recorded footage</b>evaluated against manual counts, not yet deployed live</span><span lang="ko"><b>녹화 영상 검증</b>수동 계수와 비교, 실시간 현장 적용은 아직 미수행</span></li>
           </ul>
         </div>
 
         <div class="gallery">
           <figure>
             <button class="shot" type="button"><img src="assets/img/vc-street.webp" width="1280" height="720" loading="lazy" alt="Street-level camera frame with tracked vehicles labelled by ID"></button>
-            <figcaption>Tracked IDs on street-level footage</figcaption>
+            <figcaption><span lang="en">Tracked IDs on street-level footage</span><span lang="ko">지상 카메라 영상의 추적 ID</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/vc-dataset.webp" width="1116" height="513" loading="lazy" alt="Grid of drone frame thumbnails from the custom dataset"></button>
-            <figcaption>Part of the drone dataset</figcaption>
+            <figcaption><span lang="en">Part of the drone dataset</span><span lang="ko">드론 데이터셋 일부</span></figcaption>
           </figure>
         </div>
       </article>
@@ -217,106 +234,106 @@
         <div class="p-head">
           <span class="p-num">05</span>
           <div>
-            <h2>Image-trading platform over REST and a custom TLS protocol</h2>
+            <h2><span lang="en">Image-trading platform over REST and a custom protocol on TLS</span><span lang="ko">REST·자체 프로토콜(TLS) 기반 이미지 거래 플랫폼</span></h2>
           </div>
-          <p class="p-meta">2026 · Team of three · Python · Flask · TCP/TLS · SQLite</p>
+          <p class="p-meta">2026 · <span lang="en">Team of three</span><span lang="ko">3인 팀</span> · Python · Flask · TCP/TLS · SQLite</p>
         </div>
 
         <figure class="lead-shot">
           <button class="shot" type="button"><img src="assets/img/trade-offers.webp" width="1600" height="860" alt="Desktop client showing a pending barter offer with accept and refuse buttons"></button>
-          <figcaption>The client's Offers tab, previewing a barter offer.</figcaption>
+          <figcaption><span lang="en">The client's Offers tab, previewing a barter offer.</span><span lang="ko">클라이언트 Offers 탭의 교환 제안 미리보기 화면.</span></figcaption>
         </figure>
 
         <div class="p-body">
-          <p>Users upload, browse and barter images. One multithreaded Python server offers the same business logic through two protocols: REST over HTTPS, and a length-prefixed protocol of our own over TCP with TLS. I worked on the server, protocol and security layers, and we built the desktop GUI together.</p>
+          <p><span lang="en">Users upload, browse and barter images. One multithreaded Python server offers the same business logic through two protocols: REST over HTTPS, and a length-prefixed protocol of our own over TCP with TLS. I worked on the server, protocol and security layers, and we built the desktop GUI together.</span><span lang="ko">사용자가 이미지를 업로드·열람하고 서로 교환하는 플랫폼입니다. 멀티스레드 Python 서버 하나가 같은 비즈니스 로직을 두 프로토콜로 제공합니다. 하나는 HTTPS 기반 REST, 다른 하나는 TLS를 적용한 TCP 위의 자체 길이 접두(length-prefixed) 프로토콜입니다. 저는 서버·프로토콜·보안 계층을 맡았고, 데스크톱 GUI는 팀이 함께 만들었습니다.</span></p>
           <ul class="facts">
-            <li><b>bcrypt</b>password hashing with login rate limiting</li>
-            <li><b>Fernet + SHA-256</b>encrypted image storage with integrity checks</li>
-            <li><b>TOCTOU-safe</b>ownership transfer when a trade is accepted</li>
-            <li><b>Persistent offers</b>that survive a server restart</li>
+            <li><span lang="en"><b>bcrypt</b>password hashing with login rate limiting</span><span lang="ko"><b>bcrypt</b>비밀번호 해싱과 로그인 시도 횟수 제한</span></li>
+            <li><span lang="en"><b>Fernet + SHA-256</b>encrypted image storage with integrity checks</span><span lang="ko"><b>Fernet + SHA-256</b>이미지 암호화 저장과 무결성 검증</span></li>
+            <li><span lang="en"><b>TOCTOU-safe</b>ownership transfer when a trade is accepted</span><span lang="ko"><b>TOCTOU 안전</b>교환 수락 시 소유권 이전</span></li>
+            <li><span lang="en"><b>Persistent offers</b>that survive a server restart</span><span lang="ko"><b>영속 교환 제안</b>서버 재시작 후에도 유지</span></li>
           </ul>
         </div>
 
         <div class="gallery">
           <figure>
             <button class="shot" type="button"><img src="assets/img/trade-server.webp" width="1200" height="1236" loading="lazy" alt="Diagram of server modules: REST and TCP threads over a shared services layer"></button>
-            <figcaption>Server structure: two protocol threads over one services layer</figcaption>
+            <figcaption><span lang="en">Server structure: two protocol threads over one services layer</span><span lang="ko">서버 구조: 단일 서비스 계층 위에서 동작하는 두 프로토콜 스레드</span></figcaption>
           </figure>
         </div>
       </article>
     </section>
 
     <section id="experience">
-      <p class="label">Experience</p>
+      <p class="label"><span lang="en">Experience</span><span lang="ko">경력</span></p>
       <ul class="rows">
         <li>
           <span class="when">2026.07 – 11</span>
           <div>
-            <h3>Overseas Technical Talent Program <span class="org">· KCCI</span></h3>
-            <p>A 500-hour programme: Korean language (200 h, completed), plus firmware on STM32 and FreeRTOS, electronic hardware design, and semiconductor design.</p>
+            <h3><span lang="en">Overseas Technical Talent Program</span><span lang="ko">해외전문기술인력 유치사업</span> <span class="org">· <span lang="en">KCCI</span><span lang="ko">대한상공회의소</span></span></h3>
+            <p><span lang="en">A 500-hour programme: Korean language (200 h, completed), plus firmware on STM32 and FreeRTOS, electronic hardware design, and semiconductor design.</span><span lang="ko">총 500시간 과정: 한국어 200시간(이수 완료), STM32·FreeRTOS 펌웨어, 전자 하드웨어 설계, 반도체 설계.</span></p>
           </div>
         </li>
         <li>
           <span class="when">2025.07 – 08</span>
           <div>
-            <h3>Data Protection Exploration Intern <span class="org">· Telkomsel</span></h3>
-            <p>Built a differential-privacy analysis system (Python, Flask, pyDP) against re-identification and fingerprinting, and a personal-data-protection audit matrix.</p>
+            <h3><span lang="en">Data Protection Exploration Intern</span><span lang="ko">개인정보보호 프로그램 인턴</span> <span class="org">· Telkomsel</span></h3>
+            <p><span lang="en">Built a differential-privacy analysis system (Python, Flask, pyDP) against re-identification and fingerprinting, and a personal-data-protection audit matrix.</span><span lang="ko">재식별·핑거프린팅 공격에 대응하는 차분 프라이버시 분석 시스템(Python, Flask, pyDP)과 개인정보보호 감사 통제 매트릭스를 개발했습니다.</span></p>
           </div>
         </li>
         <li>
           <span class="when">2024.09 – 2026.05</span>
           <div>
-            <h3>Laboratory Assistant <span class="org">· ITB</span></h3>
-            <p>Ran practicum sessions for Electronics I, Computer Architecture (a single-cycle RISC-V in Verilog), and Microprocessor Systems (ESP32).</p>
+            <h3><span lang="en">Laboratory Assistant</span><span lang="ko">실험 조교</span> <span class="org">· ITB</span></h3>
+            <p><span lang="en">Ran practicum sessions for Electronics I, Computer Architecture (a single-cycle RISC-V in Verilog), and Microprocessor Systems (ESP32).</span><span lang="ko">전자회로1, 컴퓨터구조(Verilog 단일 사이클 RISC-V), 마이크로프로세서 시스템(ESP32) 실습을 담당했습니다.</span></p>
           </div>
         </li>
         <li>
           <span class="when">2024.09 – 2025.11</span>
           <div>
-            <h3>Teaching &amp; Research Assistant <span class="org">· ITB</span></h3>
-            <p>Taught weekly Discrete Structures tutorials for 60+ students. Built the vehicle-counting system at the Control System &amp; Computer Lab.</p>
+            <h3><span lang="en">Teaching &amp; Research Assistant</span><span lang="ko">교육·연구 조교</span> <span class="org">· ITB</span></h3>
+            <p><span lang="en">Taught weekly Discrete Structures tutorials for 60+ students. Built the vehicle-counting system at the Control System &amp; Computer Lab.</span><span lang="ko">이산구조 과목에서 60명 이상을 대상으로 주간 튜토리얼을 진행했고, 제어시스템·컴퓨터 연구실(LSKK)에서 차량 계수 시스템을 개발했습니다.</span></p>
           </div>
         </li>
         <li>
           <span class="when">2023.01 – 2025.01</span>
           <div>
-            <h3>Senior Programmer <span class="org">· ITB Robotics Unit</span></h3>
-            <p>Set up Gazebo simulation so robot behaviour could be tested without the physical hardware.</p>
+            <h3><span lang="en">Senior Programmer</span><span lang="ko">선임 프로그래머</span> <span class="org">· <span lang="en">ITB Robotics Unit</span><span lang="ko">ITB 로보틱스 유닛(로봇 동아리)</span></span></h3>
+            <p><span lang="en">Set up Gazebo simulation so robot behaviour could be tested without the physical hardware.</span><span lang="ko">실물 하드웨어 없이도 로봇 동작을 시험할 수 있도록 Gazebo 시뮬레이션 환경을 구축했습니다.</span></p>
           </div>
         </li>
       </ul>
 
-      <p class="label">Education</p>
+      <p class="label"><span lang="en">Education</span><span lang="ko">학력</span></p>
       <ul class="rows">
         <li>
           <span class="when">2022 – 2026</span>
           <div>
-            <h3>B.Eng. Electrical Engineering <span class="org">· Bandung Institute of Technology</span></h3>
-            <p>IC design specialisation. Cum Laude, GPA 3.54 / 4.00.</p>
+            <h3><span lang="en">B.Eng. Electrical Engineering</span><span lang="ko">전기공학 학사</span> <span class="org">· <span lang="en">Bandung Institute of Technology</span><span lang="ko">반둥공과대학교(ITB)</span></span></h3>
+            <p><span lang="en">IC design specialisation. Cum Laude, GPA 3.54 / 4.00.</span><span lang="ko">IC 설계 전공 트랙. Cum Laude, 평점 3.54 / 4.00.</span></p>
           </div>
         </li>
       </ul>
     </section>
 
     <section id="skills">
-      <p class="label">Skills</p>
+      <p class="label"><span lang="en">Skills</span><span lang="ko">기술</span></p>
       <dl class="skills">
-        <dt>Digital IC</dt>
+        <dt><span lang="en">Digital IC</span><span lang="ko">디지털 IC</span></dt>
         <dd>Verilog, LibreLane / OpenROAD, OpenSTA, Yosys, Verilator, Magic, KLayout, pyuvm, cocotb, Icarus, Quartus</dd>
-        <dt>Analog &amp; layout</dt>
+        <dt><span lang="en">Analog &amp; layout</span><span lang="ko">아날로그·레이아웃</span></dt>
         <dd>Cadence Virtuoso, Xschem, Ngspice, LTspice</dd>
-        <dt>Embedded</dt>
-        <dd>C / C++, ESP32, STM32, MQTT, KiCad, oscilloscope bench work</dd>
-        <dt>Software</dt>
+        <dt><span lang="en">Embedded</span><span lang="ko">임베디드</span></dt>
+        <dd>C / C++, ESP32, STM32, MQTT, KiCad, <span lang="en">oscilloscope bench work</span><span lang="ko">오실로스코프 계측</span></dd>
+        <dt><span lang="en">Software</span><span lang="ko">소프트웨어</span></dt>
         <dd>Python, Tcl, Flask, Git, Linux, Docker</dd>
-        <dt>Languages</dt>
-        <dd>Indonesian (native), English (fluent, IELTS 7.5), Korean (learning)</dd>
+        <dt><span lang="en">Languages</span><span lang="ko">언어</span></dt>
+        <dd><span lang="en">Indonesian (native), English (fluent, IELTS 7.5), Korean (learning)</span><span lang="ko">인도네시아어(모국어), 영어(유창, IELTS 7.5), 한국어(학습 중)</span></dd>
       </dl>
     </section>
   </main>
 
   <footer id="contact">
-    <span>Get in touch: <a href="mailto:mahardhika.adipratama@gmail.com">mahardhika.adipratama@gmail.com</a></span>
+    <span><span lang="en">Get in touch:</span><span lang="ko">연락처:</span> <a href="mailto:mahardhika.adipratama@gmail.com">mahardhika.adipratama@gmail.com</a></span>
     <button class="theme-toggle" type="button">Dark mode</button>
   </footer>
 

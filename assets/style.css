@@ -10,7 +10,7 @@
   --hl-edge: #1b1b1a;
   --hl-shadow: #1b1b1a;
   --maxw: 760px;
-  --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
   color-scheme: light;
 }
@@ -24,8 +24,13 @@
 :root[data-theme="dark"] {
   --bg: #121211; --text: #e9e8e4; --muted: #9b9a95; --rule: #2a2a28;
   --surface: #1b1b1a; --accent: #e08a5e; color-scheme: dark;
-    --hl: #ffd23f; --hl-ink: #161614; --hl-edge: #ffd23f; --hl-shadow: rgba(255, 210, 63, .22);
+  --hl: #ffd23f; --hl-ink: #161614; --hl-edge: #ffd23f; --hl-shadow: rgba(255, 210, 63, .22);
 }
+
+/* bilingual copy: every string exists as lang="en" and lang="ko"; show one */
+html[data-lang="ko"] body [lang="en"],
+html:not([data-lang="ko"]) body [lang="ko"] { display: none !important; }
+html[data-lang="ko"] body { word-break: keep-all; overflow-wrap: break-word; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -45,9 +50,14 @@ img { display: block; max-width: 100%; height: auto; }
 /* header */
 .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0 0; font-size: 14px; }
 .top .mark { font-family: var(--mono); letter-spacing: .02em; text-decoration: none; white-space: nowrap; }
+.top-right { display: flex; align-items: center; gap: 10px 20px; flex-wrap: wrap; justify-content: flex-end; }
 .top nav { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
 .top nav a { text-decoration: none; color: var(--muted); }
 .top nav a:hover { color: var(--text); }
+.lang-switch { display: inline-flex; padding: 2px; border: 1px solid var(--rule); border-radius: 999px; }
+.lang-switch button { font: 500 13px/1 var(--sans); padding: 6px 11px; border: 0; border-radius: 999px; background: none; color: var(--muted); cursor: pointer; }
+.lang-switch button:hover { color: var(--text); }
+.lang-switch button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
 
 .hero { padding: 96px 0 72px; }
 .hero h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.12; letter-spacing: -.02em; font-weight: 600; margin: 0 0 20px; }
