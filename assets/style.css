@@ -54,6 +54,8 @@ img { display: block; max-width: 100%; height: auto; }
 /* sections */
 section { border-top: 1px solid var(--rule); padding: 56px 0 8px; }
 .label { font: 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 40px; }
+.work-intro { font-size: 15px; color: var(--muted); max-width: 36em; margin: -16px 0 56px; }
+.work-intro a { color: var(--text); }
 
 /* projects */
 .project { margin: 0 0 88px; scroll-margin-top: 24px; }
