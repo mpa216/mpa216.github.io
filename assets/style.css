@@ -145,3 +145,7 @@ dialog.lightbox::backdrop { background: rgba(10, 10, 10, .9); }
 dialog.lightbox img { max-width: 100%; max-height: calc(94vh - 72px); margin: 0 auto; background: #fff; }
 dialog.lightbox p { font-size: 14px; text-align: center; margin: 12px 16px 0; color: #d6d5d0; }
 dialog.lightbox button { position: fixed; top: 12px; right: 16px; font: 30px/1 var(--sans); color: #fff; background: none; border: 0; cursor: pointer; padding: 6px 10px; }
+
+/* labelled rows inside a project gallery (accelerator: architecture / sign-off / evolution) */
+.gallery-label { font: 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 32px 0 -12px; }
+.gallery-label + .gallery { margin-top: 24px; }
