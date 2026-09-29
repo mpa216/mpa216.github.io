@@ -75,8 +75,8 @@
         </div>
 
         <figure class="lead-shot">
-          <button class="shot" type="button"><img src="assets/img/dla-die.webp" width="573" height="379" alt="Layout of the signed-off accelerator block with eight SRAM macros in the centre and the power grid around them"></button>
-          <figcaption><span lang="en">The signed-off block, 1675 × 1110 µm: the accelerator core and its serial bridge, with eight SRAM macros in the centre.</span><span lang="ko">사인오프를 마친 블록(1675 × 1110 µm): 가속기 코어와 시리얼 브리지, 중앙의 SRAM 매크로 8개.</span></figcaption>
+          <button class="shot" type="button"><img src="assets/img/dla-die.webp" width="1400" height="927" alt="Layout of the hardened accelerator block with eight SRAM macros in the centre and the power grid around them"></button>
+          <figcaption><span lang="en">The hardened block, 1675 × 1110 µm: the accelerator core and its serial bridge, with eight SRAM macros in the centre.</span><span lang="ko">하드닝한 블록(1675 × 1110 µm): 가속기 코어와 시리얼 브리지, 중앙의 SRAM 매크로 8개.</span></figcaption>
         </figure>
 
         <div class="p-body">
@@ -122,8 +122,8 @@
             <figcaption><span lang="en">A full 784-pixel “0” generated through the serial bridge on the gate-level netlist, bit-exact</span><span lang="ko">게이트레벨 넷리스트에서 시리얼 브리지를 거쳐 생성한 784픽셀 숫자 “0”(비트 단위 일치)</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/dla-power-pin.webp" width="688" height="1050" loading="lazy" alt="Plot of the power-pin connector joining the padframe DVDD and DVSS pins to the block power ring"></button>
-            <figcaption><span lang="en">The power-pin connector I wrote: padframe DVDD/DVSS pins welded to the block’s power ring, which closed chip LVS</span><span lang="ko">직접 작성한 전원 핀 연결: 패드프레임 DVDD/DVSS 핀을 블록 전원 링에 연결해 칩 LVS 통과</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/dla-density.webp" width="1018" height="730" loading="lazy" alt="Placement-density heatmap of the final eight-macro core"></button>
+            <figcaption><span lang="en">Final core: eight macros, the result buffer in flip-flops (placement density)</span><span lang="ko">최종 코어: SRAM 8개, 결과 버퍼는 플립플롭(배치 밀도)</span></figcaption>
           </figure>
           <figure>
             <button class="shot" type="button"><img src="assets/img/dla-die-map.webp" width="1600" height="955" loading="lazy" alt="Die map of the block showing the SRAM macros, the power connector and the organiser keep-out"></button>
@@ -131,23 +131,23 @@
           </figure>
         </div>
 
-        <p class="gallery-label"><span lang="en">How the layout evolved</span><span lang="ko">레이아웃의 변천</span></p>
+        <p class="gallery-label"><span lang="en">Power-pin connector, up close</span><span lang="ko">전원 핀 연결부 확대</span></p>
         <div class="gallery">
           <figure>
-            <button class="shot" type="button"><img src="assets/img/dla-stage1.webp" width="1000" height="938" loading="lazy" alt="Layout of the first hardened macro with eleven SRAM macros"></button>
-            <figcaption><span lang="en">First hardened macro: eleven SRAM macros, 1600 × 1500 µm</span><span lang="ko">첫 하드닝 매크로: SRAM 11개, 1600 × 1500 µm</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/dla-power-pin.webp" width="688" height="1050" loading="lazy" alt="Plot of the power-pin connector joining the padframe DVDD and DVSS pins to the block power ring"></button>
+            <figcaption><span lang="en">The power-pin connector I wrote: padframe DVDD/DVSS pins welded to the block’s power ring, which closed chip LVS</span><span lang="ko">직접 작성한 전원 핀 연결: 패드프레임 DVDD/DVSS 핀을 블록 전원 링에 연결해 칩 LVS 통과</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/dla-chip11.webp" width="1000" height="1000" loading="lazy" alt="The eleven-macro design inside its full padring"></button>
-            <figcaption><span lang="en">That eleven-macro version in its full 2935 × 2935 µm padring</span><span lang="ko">SRAM 11개 버전을 2935 × 2935 µm 패드링에 통합한 모습</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/dla-conn-west.webp" width="900" height="1641" loading="lazy" alt="Layout render of the block's west edge with the red DVDD and DVSS pad fingers and the connector welds"></button>
+            <figcaption><span lang="en">The west die edge: DVDD and DVSS pad fingers (red) and the connector welds to the core power rings</span><span lang="ko">다이 서쪽 가장자리: DVDD·DVSS 패드 핑거(빨강)와 코어 전원 링으로 이어지는 연결부</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/dla-tiny.webp" width="900" height="867" loading="lazy" alt="Layout of the nine-macro version on a three by three grid"></button>
-            <figcaption><span lang="en">Nine macros, 1375 × 1325 µm, after folding the result buffer into one macro</span><span lang="ko">결과 버퍼를 매크로 하나로 접은 SRAM 9개 버전, 1375 × 1325 µm</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/dla-conn-dvdd.webp" width="900" height="900" loading="lazy" alt="Close-up render of three DVDD pad fingers joined to the power rings through via columns"></button>
+            <figcaption><span lang="en">DVDD close-up: three pad fingers, each joined pin → plate → via column → rings (40 µm window)</span><span lang="ko">DVDD 확대: 패드 핑거 3개가 핀 → 플레이트 → 비아 열 → 링으로 연결(40 µm 영역)</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/dla-density.webp" width="1018" height="730" loading="lazy" alt="Placement-density heatmap of the final eight-macro core"></button>
-            <figcaption><span lang="en">Final core: eight macros, the result buffer in flip-flops (placement density)</span><span lang="ko">최종 코어: SRAM 8개, 결과 버퍼는 플립플롭(배치 밀도)</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/dla-conn-dvss.webp" width="900" height="900" loading="lazy" alt="Close-up render of three DVSS pad fingers joined to the power rings through via columns"></button>
+            <figcaption><span lang="en">DVSS close-up: the same weld on the ground side</span><span lang="ko">DVSS 확대: 접지 측의 같은 연결 구조</span></figcaption>
           </figure>
         </div>
         <p class="more"><span lang="en">Figures from the APSIPA ASC 2026 paper and the project repository.</span><span lang="ko">그림 출처: APSIPA ASC 2026 논문 및 프로젝트 저장소.</span> <a href="https://github.com/mpa216/Deep-Learning-Accelerator-DLA-Engine-From-CNN-to-GenAI-SNN" rel="noopener"><span lang="en">Repository and learning notes →</span><span lang="ko">저장소 및 학습 노트 →</span></a></p>
