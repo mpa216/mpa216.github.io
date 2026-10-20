@@ -201,9 +201,123 @@
       </article>
 
       <!-- 03 -->
-      <article class="project" id="adc">
+      <article class="project" id="pcb">
         <div class="p-head">
           <span class="p-num">03</span>
+          <div>
+            <h2><span lang="en">4-layer MIPI-DSI to HDMI/LVDS bridge board, plus an ATmega128 board</span><span lang="ko">4층 MIPI-DSI → HDMI/LVDS 브리지 보드와 ATmega128 보드</span></h2>
+          </div>
+          <p class="p-meta">2026 · <span lang="en">KCCI PCB-design module, final project</span><span lang="ko">KCCI PCB 설계 과정 최종 프로젝트</span> · KiCad 10 · <span lang="en">100 Ω differential pairs</span><span lang="ko">100 Ω 차동 페어</span></p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/pcb-hdmi.webp" width="1600" height="1180" alt="3D render of the bridge board: an FPC connector at the top left, the bridge chip in the centre, an HDMI connector at the bottom and an LVDS header on the right"></button>
+          <figcaption><span lang="en">The bridge board, 69.7 × 48.0 mm. MIPI-DSI comes in on the FPC connector (top left); HDMI leaves at the bottom and LVDS on the 2 × 9 header (right).</span><span lang="ko">브리지 보드(69.7 × 48.0 mm). 왼쪽 위 FPC 커넥터로 MIPI-DSI가 들어오고, 아래쪽으로 HDMI, 오른쪽 2 × 9 헤더로 LVDS가 나갑니다.</span></figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p><span lang="en">My final project for the PCB-design module of the KCCI programme. I re-created Espressif's ESP32-P4 MIPI-DSI to HDMI/LVDS converter, built around Lontium's LT8912B bridge chip. I redrew the 96-part schematic from Espressif's reference PDF, checked it net by net and corrected four errors in the reference, then placed and routed the 4-layer board by hand in KiCad.</span><span lang="ko">KCCI 프로그램 PCB 설계 과정의 최종 프로젝트입니다. Lontium LT8912B 브리지 칩을 쓰는 Espressif의 ESP32-P4용 MIPI-DSI → HDMI/LVDS 변환 보드를 재현했습니다. Espressif 레퍼런스 PDF를 보고 부품 96개의 회로도를 다시 그려 넷 단위로 대조하면서 레퍼런스의 오류 4건을 바로잡았고, 4층 보드의 배치와 배선은 KiCad에서 자동 배선 없이 직접 진행했습니다.</span></p>
+          <p><span lang="en">The hard part was the twelve differential pairs: three MIPI lanes in, four HDMI pairs and five LVDS pairs out, all 100 Ω on JLCPCB's impedance-controlled 4-layer stackup with two solid ground planes inside. The FPC connector's lane order forces the MIPI clock to cross lane D1. Instead of hopping layers, I threaded the clock between the pads of D1's 0 Ω links, so no high-speed pair carries a single via, and every pair is length-matched within the datasheet's 0.127 mm.</span><span lang="ko">가장 어려웠던 부분은 차동 페어 12쌍이었습니다. 입력은 MIPI 레인 3개, 출력은 HDMI 4쌍과 LVDS 5쌍이며, 모두 내층 두 개를 GND 플레인으로 쓴 JLCPCB의 4층 임피던스 제어 스택업에서 100 Ω으로 맞췄습니다. FPC 커넥터의 레인 순서 때문에 MIPI 클럭은 D1 레인과 교차할 수밖에 없었는데, 층을 바꾸는 대신 D1의 0 Ω 링크 패드 사이로 클럭을 통과시켰습니다. 그 결과 고속 페어에는 비아가 하나도 없으며, 모든 페어의 길이를 데이터시트 기준인 0.127 mm 이내로 맞췄습니다.</span></p>
+          <p><span lang="en">The module's other board is the textbook's ATmega128 controller: a 7805 regulator, a 16 MHz crystal, an ISP header and all seven I/O ports on headers, on two layers. As printed, the book's schematic would leave the MCU unpowered and the programming header unconnected. My board fixes both, along with a power-switch pinout that would never conduct and a missing decoupling capacitor.</span><span lang="ko">같은 과정의 또 다른 보드는 교재의 ATmega128 컨트롤러입니다. 7805 레귤레이터, 16 MHz 크리스털, ISP 헤더, I/O 포트 7개 전체를 헤더로 뺀 2층 보드입니다. 교재 회로도를 그대로 따르면 MCU에 전원이 들어가지 않고 프로그래밍 헤더도 MCU와 연결되지 않습니다. 제 보드에서는 이 두 문제와 함께, 전혀 도통하지 않는 전원 스위치 핀 배치와 빠진 디커플링 커패시터도 바로잡았습니다.</span></p>
+          <ul class="facts">
+            <li><span lang="en"><b>12 differential pairs</b>100 Ω, matched within 0.127 mm, no vias</span><span lang="ko"><b>차동 페어 12쌍</b>100 Ω, 길이 오차 0.127 mm 이내, 비아 없음</span></li>
+            <li><span lang="en"><b>0 DRC errors</b>and 0 unconnected items on both boards, schematic parity clean</span><span lang="ko"><b>DRC 오류 0건</b>두 보드 모두 미연결 0건, 회로도-PCB 일치</span></li>
+            <li><span lang="en"><b>4 layers, 96 parts</b>signal / ground / ground / signal, all passives 0603</span><span lang="ko"><b>4층, 부품 96개</b>신호 / GND / GND / 신호, 수동소자 전부 0603</span></li>
+            <li><span lang="en"><b>Fab-ready</b>Gerber X2, drill, BOM and pick-and-place files for both boards</span><span lang="ko"><b>제작 준비 완료</b>두 보드 모두 거버(X2)·드릴·BOM·부품 좌표 파일 출력</span></li>
+          </ul>
+          <p class="note"><span lang="en"><strong>Status.</strong> Both boards are finished in KiCad, fabrication files included, but neither has been manufactured yet, so nothing here has been measured on hardware.</span><span lang="ko"><strong>현황.</strong> 두 보드 모두 KiCad 설계와 제작 파일까지 완료했지만, 아직 실제로 제작하지 않아 하드웨어에서 측정한 결과는 없습니다.</span></p>
+        </div>
+
+        <p class="gallery-label"><span lang="en">HDMI/LVDS bridge</span><span lang="ko">HDMI/LVDS 브리지</span></p>
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-map.webp" width="1600" height="1074" loading="lazy" alt="Board map with nets coloured by block and numbered in the order they were placed and routed"></button>
+            <figcaption><span lang="en">Built inside out from the bridge chip: 1 chip · 2 crystal · 3 MIPI in · 4 HDMI out · 5 LVDS out · 6 level shifters · 7 power · 8 ground</span><span lang="ko">브리지 칩에서 바깥쪽으로 진행한 순서: 1 칩 · 2 크리스털 · 3 MIPI 입력 · 4 HDMI 출력 · 5 LVDS 출력 · 6 레벨 시프터 · 7 전원 · 8 GND</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-mipi.webp" width="1600" height="645" loading="lazy" alt="Close-up of the MIPI lanes: the clock pair passing between the pads of the D1 zero-ohm links"></button>
+            <figcaption><span lang="en">The MIPI clock pair passes between the pads of lane D1's 0 Ω links, so the crossing needs no via</span><span lang="ko">MIPI 클럭 페어가 D1 레인 0 Ω 링크의 패드 사이를 지나, 교차 구간에도 비아가 없음</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-lvds.webp" width="926" height="804" loading="lazy" alt="LVDS pairs entering the 2 by 9 header, with serpentine length-matching bumps on one line of each pair"></button>
+            <figcaption><span lang="en">LVDS pairs into the 2.54 mm header: bumps on the N lines make up for the P lines' detour</span><span lang="ko">2.54 mm 헤더로 들어가는 LVDS 페어: P 라인이 돌아가는 길이를 N 라인의 미앤더로 보상</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-gerber.webp" width="1600" height="825" loading="lazy" alt="Ucamco reference Gerber viewer showing the board and its list of layers"></button>
+            <figcaption><span lang="en">The exported Gerbers in Ucamco's reference viewer: all 11 layers read as Gerber X2</span><span lang="ko">Ucamco 레퍼런스 뷰어로 확인한 거버 파일: 11개 층 모두 Gerber X2로 인식</span></figcaption>
+          </figure>
+        </div>
+
+        <p class="gallery-label"><span lang="en">ATmega128 board</span><span lang="ko">ATmega128 보드</span></p>
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-m128.webp" width="1400" height="1369" loading="lazy" alt="3D render of the ATmega128 board with a TO-220 regulator, an ISP header and pin headers along the edges"></button>
+            <figcaption><span lang="en">ATmega128 board, 61.7 × 68.2 mm, two layers</span><span lang="ko">ATmega128 보드(61.7 × 68.2 mm, 2층)</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-m128-layout.webp" width="1400" height="1535" loading="lazy" alt="Copper layout of the ATmega128 board: red top-layer tracks over a blue bottom-layer ground pour"></button>
+            <figcaption><span lang="en">Copper: top-layer tracks (red) over the bottom ground pour (blue)</span><span lang="ko">동박: 상면 배선(빨강)과 하면 GND 폴리곤(파랑)</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/pcb-m128-sch.webp" width="1600" height="1818" loading="lazy" alt="Schematic of the ATmega128 board: power input and regulator, ISP header, and the microcontroller with its port headers"></button>
+            <figcaption><span lang="en">The schematic, with the textbook's errata fixed</span><span lang="ko">교재의 오류를 바로잡은 회로도</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="project" id="conveyor">
+        <div class="p-head">
+          <span class="p-num">04</span>
+          <div>
+            <h2><span lang="en">Operator dashboard for a component-sorting conveyor</span><span lang="ko">부품 분류 컨베이어의 운전원 대시보드</span></h2>
+          </div>
+          <p class="p-meta">2026 · <span lang="en">KCCI firmware module, team of five</span><span lang="ko">KCCI 펌웨어 과정, 5인 팀</span> · STM32 · FreeRTOS · ESP32 · MQTT · Flask</p>
+        </div>
+
+        <figure class="lead-shot">
+          <button class="shot" type="button"><img src="assets/img/conv-phone.webp" width="1400" height="1004" alt="A phone propped beside the conveyor belt showing the dashboard: state SORTING, the live camera panel and the last sorted item, a button"></button>
+          <figcaption><span lang="en">The dashboard on a phone beside the belt, from the team's demo video: the machine is sorting, and the last part went to the BUTTON lane.</span><span lang="ko">팀 시연 영상 속, 벨트 옆 휴대폰에 띄운 대시보드: 기계는 분류 중이고, 마지막 부품은 BUTTON 레인으로 분류되었습니다.</span></figcaption>
+        </figure>
+
+        <div class="p-body">
+          <p><span lang="en">The final project of the KCCI firmware module, built in two weeks by a team of five. When a time-of-flight sensor sees a part, the belt stops it under a camera, a YOLO model on a laptop decides whether it is a button or an IC, and a servo gate steers it into the right lane. The machine runs on an STM32 NUCLEO-F411RE with FreeRTOS. My part was the operator interface, from the firmware link to the browser.</span><span lang="ko">KCCI 펌웨어 과정의 최종 프로젝트로, 5인 팀이 2주 동안 만들었습니다. ToF 센서가 부품을 감지하면 벨트가 카메라 아래에서 멈추고, 노트북의 YOLO 모델이 버튼인지 IC인지 판별한 뒤, 서보 게이트가 알맞은 레인으로 보냅니다. 기계는 FreeRTOS를 올린 STM32 NUCLEO-F411RE로 동작합니다. 저는 펌웨어 쪽 링크부터 브라우저 화면까지, 운전원 인터페이스 전체를 맡았습니다.</span></p>
+          <p><span lang="en">The STM32 sends one JSON status line every 200 ms over UART. An ESP32 relays it over Wi-Fi to an MQTT broker, and a Flask server streams it to any browser on the network with server-sent events, so the same page works on a phone. It shows the state machine, part counts, motor and encoder, the ToF distance, the servo and the vision link, next to the team's camera feed.</span><span lang="ko">STM32가 200 ms마다 JSON 상태 한 줄을 UART로 보내면, ESP32가 이를 Wi-Fi로 MQTT 브로커에 중계하고, Flask 서버가 SSE(server-sent events)로 같은 네트워크의 브라우저에 실시간 전송합니다. 그래서 같은 화면을 휴대폰에서도 볼 수 있습니다. 화면에는 상태머신, 부품 수량, 모터와 인코더, ToF 거리, 서보, 비전 링크 상태가 팀의 카메라 영상과 함께 표시됩니다.</span></p>
+          <p><span lang="en">Two rules shaped it. The page never invents data: if telemetry stops, it says LINK LOST and greys out the last real values. And the dashboard can stop the belt but never start it; each command carries the timestamp of the frame the operator was looking at, and anything older than two seconds is rejected.</span><span lang="ko">설계 원칙은 두 가지였습니다. 첫째, 화면은 데이터를 지어내지 않습니다. 텔레메트리가 끊기면 LINK LOST를 표시하고 마지막 실제 값을 회색으로 표시합니다. 둘째, 대시보드는 벨트를 멈출 수만 있고 기동할 수는 없습니다. 모든 명령에는 운전원이 보고 있던 프레임의 타임스탬프가 붙고, 2초보다 오래된 명령은 거부됩니다.</span></p>
+          <p><span lang="en">I also helped choose, test and calibrate a replacement for the inductive proximity sensor, which reached only about 5 mm and could not see non-metal parts. We moved to a VL53L1X time-of-flight sensor.</span><span lang="ko">또한 유도형 근접 센서를 대체할 센서의 선정·시험·보정에도 참여했습니다. 기존 센서는 감지 거리가 약 5 mm에 불과하고 비금속 부품을 감지하지 못해, VL53L1X ToF 센서로 교체했습니다.</span></p>
+          <ul class="facts">
+            <li><span lang="en"><b>200 ms</b>status line: STM32 → UART → ESP32 → MQTT → browser</span><span lang="ko"><b>200 ms</b>주기 상태 전송: STM32 → UART → ESP32 → MQTT → 브라우저</span></li>
+            <li><span lang="en"><b>Stop only</b>no starting from the dashboard; commands older than 2 s are rejected</span><span lang="ko"><b>정지 전용</b>대시보드에서는 기동 불가, 2초가 지난 명령은 거부</span></li>
+            <li><span lang="en"><b>13 host tests pass</b>the team's 8 firmware tests plus 5 for the dashboard link</span><span lang="ko"><b>호스트 테스트 13건 통과</b>팀 펌웨어 테스트 8건과 대시보드 링크 테스트 5건</span></li>
+            <li><span lang="en"><b>Any screen</b>desktop or phone, on the same Wi-Fi</span><span lang="ko"><b>어떤 화면에서든</b>같은 Wi-Fi의 PC·휴대폰에서 접속</span></li>
+          </ul>
+          <p class="note"><span lang="en"><strong>What's left.</strong> In the demo, parts reached the right bins and the camera feed reached the dashboard. But the dashboard's STOP did not stop the motor on the real machine, even though it passed host tests and end-to-end software tests. I haven't diagnosed the cause yet.</span><span lang="ko"><strong>남은 과제.</strong> 시연에서 부품은 알맞은 통으로 분류되었고 카메라 영상도 대시보드에 표시되었습니다. 그러나 대시보드의 STOP은 호스트 테스트와 소프트웨어 종단 간 테스트를 통과했는데도 실제 기계에서는 모터를 멈추지 못했습니다. 원인은 아직 진단하지 못했습니다.</span></p>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/conv-dash.webp" width="1120" height="630" loading="lazy" alt="Desktop dashboard with the machine state, a live camera panel, the sorting mechanism and production counts"></button>
+            <figcaption><span lang="en">Desktop view: machine state, live inspection feed, gate lane and counts</span><span lang="ko">데스크톱 화면: 기계 상태, 실시간 검사 영상, 게이트 레인, 수량</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/conv-dash-detail.webp" width="1134" height="647" loading="lazy" alt="Lower half of the dashboard: motor gauge and encoder graph, alarms, sensor readings and the MQTT data path"></button>
+            <figcaption><span lang="en">Motor and encoder, sensors at 5 Hz, alarms, and the data path from STM32 to browser</span><span lang="ko">모터·인코더, 5 Hz 센서 값, 알람, STM32에서 브라우저까지의 데이터 경로</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/conv-bench.webp" width="1600" height="929" loading="lazy" alt="The conveyor on the lab bench with the servo gate, wiring, an OLED display and three status lamps"></button>
+            <figcaption><span lang="en">The team's machine: belt, servo gate with its orange flag, controller boards and status lamps</span><span lang="ko">팀의 기계: 벨트, 주황색 깃발을 단 서보 게이트, 제어 보드, 상태 표시등</span></figcaption>
+          </figure>
+          <figure>
+            <button class="shot" type="button"><img src="assets/img/conv-vision.webp" width="1120" height="629" loading="lazy" alt="Camera view from the vision app: an IC inside the yellow inspection zone"></button>
+            <figcaption><span lang="en">The team's YOLO inspection view of an IC; I brought this feed into the dashboard</span><span lang="ko">팀의 YOLO 검사 화면(IC). 이 영상을 대시보드로 가져오는 부분을 맡았습니다</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="project" id="adc">
+        <div class="p-head">
+          <span class="p-num">05</span>
           <div>
             <h2><span lang="en">5-bit pipelined ADC, full-custom layout in 45 nm CMOS</span><span lang="ko">45 nm CMOS 5비트 파이프라인 ADC 풀커스텀 레이아웃</span></h2>
           </div>
@@ -233,10 +347,10 @@
         </div>
       </article>
 
-      <!-- 04 -->
+      <!-- 06 -->
       <article class="project" id="counting">
         <div class="p-head">
-          <span class="p-num">04</span>
+          <span class="p-num">06</span>
           <div>
             <h2><span lang="en">Real-time vehicle counting from drone and CCTV video</span><span lang="ko">드론·CCTV 영상 기반 실시간 차량 계수</span></h2>
           </div>
@@ -270,10 +384,10 @@
         </div>
       </article>
 
-      <!-- 05 -->
+      <!-- 07 -->
       <article class="project" id="trading">
         <div class="p-head">
-          <span class="p-num">05</span>
+          <span class="p-num">07</span>
           <div>
             <h2><span lang="en">Image-trading platform over REST and a custom protocol on TLS</span><span lang="ko">REST·자체 프로토콜(TLS) 기반 이미지 거래 플랫폼</span></h2>
           </div>
@@ -311,7 +425,7 @@
           <span class="when">2026.07 – 11</span>
           <div>
             <h3><span lang="en">Overseas Technical Talent Program</span><span lang="ko">해외전문기술인력 유치사업</span> <span class="org">· <span lang="en">KCCI</span><span lang="ko">대한상공회의소</span></span></h3>
-            <p><span lang="en">A 500-hour programme: Korean language (200 h, completed), plus firmware on STM32 and FreeRTOS, electronic hardware design, and semiconductor design.</span><span lang="ko">총 500시간 과정: 한국어 200시간(이수 완료), STM32·FreeRTOS 펌웨어, 전자 하드웨어 설계, 반도체 설계.</span></p>
+            <p><span lang="en">A 500-hour programme. Completed: Korean language (200 h), firmware on STM32 and FreeRTOS, and electronic hardware design. In progress: semiconductor design. Final projects: the <a href="#pcb">bridge board</a> and the <a href="#conveyor">conveyor dashboard</a>.</span><span lang="ko">총 500시간 과정. 이수 완료: 한국어(200시간), STM32·FreeRTOS 펌웨어, 전자 하드웨어 설계. 진행 중: 반도체 설계. 최종 프로젝트: <a href="#pcb">브리지 보드</a>, <a href="#conveyor">컨베이어 대시보드</a>.</span></p>
           </div>
         </li>
         <li>
@@ -364,7 +478,7 @@
         <dt><span lang="en">Analog &amp; layout</span><span lang="ko">아날로그·레이아웃</span></dt>
         <dd>Cadence Virtuoso, Xschem, Ngspice, LTspice</dd>
         <dt><span lang="en">Embedded</span><span lang="ko">임베디드</span></dt>
-        <dd>C / C++, ESP32, STM32, MQTT, KiCad, <span lang="en">oscilloscope bench work</span><span lang="ko">오실로스코프 계측</span></dd>
+        <dd>C / C++, ESP32, STM32, FreeRTOS, MQTT, KiCad <span lang="en">(4-layer, controlled impedance)</span><span lang="ko">(4층, 임피던스 제어)</span>, <span lang="en">oscilloscope bench work</span><span lang="ko">오실로스코프 계측</span></dd>
         <dt><span lang="en">Software</span><span lang="ko">소프트웨어</span></dt>
         <dd>Python, Tcl, Flask, Git, Linux, Docker</dd>
         <dt><span lang="en">Languages</span><span lang="ko">언어</span></dt>
