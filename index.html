@@ -231,20 +231,20 @@
         <p class="gallery-label"><span lang="en">HDMI/LVDS bridge</span><span lang="ko">HDMI/LVDS 브리지</span></p>
         <div class="gallery">
           <figure>
-            <button class="shot" type="button"><img src="assets/img/pcb-map.webp" width="1600" height="1074" loading="lazy" alt="Board map with nets coloured by block and numbered in the order they were placed and routed"></button>
+            <button class="shot" type="button"><img src="assets/img/pcb-map.webp" width="1596" height="1116" loading="lazy" alt="Map of the final board with nets coloured by block and numbered in the order they were placed and routed"></button>
             <figcaption><span lang="en">Built inside out from the bridge chip: 1 chip · 2 crystal · 3 MIPI in · 4 HDMI out · 5 LVDS out · 6 level shifters · 7 power · 8 ground</span><span lang="ko">브리지 칩에서 바깥쪽으로 진행한 순서: 1 칩 · 2 크리스털 · 3 MIPI 입력 · 4 HDMI 출력 · 5 LVDS 출력 · 6 레벨 시프터 · 7 전원 · 8 GND</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/pcb-mipi.webp" width="1600" height="645" loading="lazy" alt="Close-up of the MIPI lanes: the clock pair passing between the pads of the D1 zero-ohm links"></button>
+            <button class="shot" type="button"><img src="assets/img/pcb-mipi.webp" width="1600" height="588" loading="lazy" alt="Close-up of the MIPI lanes: the clock pair passing between the pads of the D1 zero-ohm links"></button>
             <figcaption><span lang="en">The MIPI clock pair passes between the pads of lane D1's 0 Ω links, so the crossing needs no via</span><span lang="ko">MIPI 클럭 페어가 D1 레인 0 Ω 링크의 패드 사이를 지나, 교차 구간에도 비아가 없음</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/pcb-lvds.webp" width="926" height="804" loading="lazy" alt="LVDS pairs entering the 2 by 9 header, with serpentine length-matching bumps on one line of each pair"></button>
-            <figcaption><span lang="en">LVDS pairs into the 2.54 mm header: bumps on the N lines make up for the P lines' detour</span><span lang="ko">2.54 mm 헤더로 들어가는 LVDS 페어: P 라인이 돌아가는 길이를 N 라인의 미앤더로 보상</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/pcb-hdmi-tmds.webp" width="1050" height="1580" loading="lazy" alt="Close-up of the four HDMI pairs running from the bridge chip through two ESD arrays to the HDMI connector pads"></button>
+            <figcaption><span lang="en">HDMI: the four TMDS pairs run straight down from the chip, through two ESD arrays, to the connector</span><span lang="ko">HDMI: TMDS 4쌍이 칩에서 ESD 보호 소자 2개를 지나 커넥터까지 곧게 내려감</span></figcaption>
           </figure>
           <figure>
-            <button class="shot" type="button"><img src="assets/img/pcb-gerber.webp" width="1600" height="825" loading="lazy" alt="Ucamco reference Gerber viewer showing the board and its list of layers"></button>
-            <figcaption><span lang="en">The exported Gerbers in Ucamco's reference viewer: all 11 layers read as Gerber X2</span><span lang="ko">Ucamco 레퍼런스 뷰어로 확인한 거버 파일: 11개 층 모두 Gerber X2로 인식</span></figcaption>
+            <button class="shot" type="button"><img src="assets/img/pcb-lvds.webp" width="1600" height="966" loading="lazy" alt="Five LVDS pairs running from the bridge chip into the 2 by 9 header, with length-matching bumps on one line of each pair"></button>
+            <figcaption><span lang="en">LVDS pairs into the 2.54 mm header: bumps on the N lines make up for the P lines' detour</span><span lang="ko">2.54 mm 헤더로 들어가는 LVDS 페어: P 라인이 돌아가는 길이를 N 라인의 미앤더로 보상</span></figcaption>
           </figure>
         </div>
 
